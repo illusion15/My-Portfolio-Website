@@ -6,6 +6,7 @@
     <link rel="icon" href="images/passport_size_pic-removebg.png" type="images/x-icon">
     <link rel="stylesheet" href="index.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
 <body>
@@ -17,13 +18,33 @@
     <!-- -----------------HEADER (NAVBAR)-------------------- -->
 
         <nav class="navbar">
+            <button id="day-night-btn" onclick="toggleMode()">
+                <span class="material-symbols-outlined">light_mode</span>
+            </button>
             <a href="#" class="active">Home</a>
             <a href="#about">About</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#contacts">Contact</a>
         </nav>
     </header>
-
+    <script defer>
+        const bodyElement = document.getElementsByTagName('body')[0];
+    
+        function toggleMode() {
+            if (bodyElement.classList.contains('night-mode')) {
+                bodyElement.classList.remove('night-mode');
+            } else {
+                bodyElement.classList.add('night-mode');
+            }
+        }
+    
+        // Initialize with night mode
+        bodyElement.classList.add('night-mode');
+    
+        // Example usage
+        // You can call toggleMode() function based on some event, like a button click.
+    </script>
+    
     <!-- --------------HOME (TEXT ON LEFT SIDE)--------------- -->
      
     <section class="home"> 
@@ -32,12 +53,40 @@
             <h3>Frontend Developer</h3>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ducimus eius maiores iste dolorum odio ut vitae itaque repudiandae. Earum! </p>
             <div class="btn-box">
-                <a href="#">Hire me</a>
+                <!-- <a href="#">Hire me</a> -->
                 <a href="#">Let's talk</a>
             </div>
         </div>
 
-    <!-- ---------------HOME (SOCIAL MEDIA BUTTON)--------------- -->
+    <!-- --------------HOME (RIGHT SIDE SKILLS)--------------- -->
+
+        <div class="skills">
+            <div class="skills-img-container" id="skillsContainer">
+                <img class="skill-img" src="images/js.png" alt="Javascript">
+                <img class="skill-img" src="images/css3.png" alt="CSS">
+                <img class="skill-img" src="images/html5.png" alt="HTML">
+            <svg class="connector" viewBox="0 0 200 200">
+                <line x1="78" y1="0" x2="150" y2="60" stroke="#00acf062" stroke-width="2"></line>
+                <line x1="58" y1="90" x2="150" y2="90" stroke="#00acf062" stroke-width="2"></line>
+                <line x1="78" y1="180" x2="152" y2="116" stroke="#00acf062" stroke-width="2"></line>
+            </svg>            
+            </div>
+            <button class="skills-btn" onclick="foldUnfoldSkills()">SKILLS</button>
+        </div>
+        <script defer>
+            const skillContainer = document.getElementById('skillsContainer');
+        
+            function foldUnfoldSkills(){
+                if (skillContainer.style.display === "none") {
+                    skillContainer.style.display = "block";
+                } else {
+                    skillContainer.style.display = "none";
+                }
+            }
+        
+            // Initially hide the skills container
+            skillContainer.style.display = "none";
+        </script>    <!-- ---------------HOME (SOCIAL MEDIA BUTTON)--------------- -->
 
         <div class="home-SM-btn">
             <a href="#"><i class='bx bxl-instagram'></i></a>
@@ -45,9 +94,6 @@
             <a href="#"><i class='bx bxl-gmail' ></i></a>
         </div>
 
-    <!-- ------------HOME (PROFILE IMG ON RIGHT SIDE)------------- -->
-
-        <div class="home-prf-pic"></div>
     </section>
 
     <!-- ----------------------ABOUT SECTION---------------------- -->
@@ -58,18 +104,23 @@
             <img src="https://cdn.pixabay.com/photo/2023/12/23/10/26/ai-generated-8465281_1280.png" >
             <ul>
                 <li>
-                    <h3 >Why you should hire me?</h3>
-                    <p>I can help you in making a responsive websites with the help of HTML and CSS.</p>
+                    <h3 >What I can do?</h3>
+                    <p>I can help you in making a responsive websites UI with the help of HTML, CSS and Javascript.</p>
                 </li>
                 <li>
                     <h3>What's my next step in developer field?</h3>
-                    <p>At this time I'm learing Javascript to complete my Frontend completly and to enter in backend through JS (DSA) and the next learing skill would be: MERN.</p>
+                    <p>At this time I'm learing Javascript to complete my Frontend completly and to enter in backend through MERN stack.</p>
+                    <p>Later on my one of the immediate aim is to do DSA with the help of Javascript.</p>
                 </li>
                 <li>
                     <h3>How much time I will take to learn these skill?</h3>
                     <p>
                         I'm a fast learn. So, it will not take much time if I decided to learn these. I can give 10hr+ daily to learn these... so, you can calculate how much time I will take.
                     </p>
+                </li>
+                <li>
+                    <h3>What is my dream project?</h3>
+                    <p>At this time, I have an idea <span style="color: red; font-weight: bold;">to reduce the r@pe cases</span> with the help of technology. But due to lack of backend knowledge, I paused that project. But this pause allways force me to learn the web development completly. So that I can resume that project as soon as possible.</p>
                 </li>
             </ul>
         </div>
@@ -80,6 +131,15 @@
     <section id="portfolio">
         <h2>Portfolio</h2>
         <div class="portfolio-img">
+            <div class="card">
+                <img src="images/Library_thumbnail.png" alt="ERROR 404">
+                <div class="info">
+                    <h1>Library</h1>
+                    <p>One stop solution for a SSC aspirant who study from youtube but get distracted due to suggestions and also does not get all the content at a specific location.</p>
+                    <a href="https://impriyanshu15.github.io/sscLibrary/" class="visit-btn" target="_blank">Visit website</a>
+                </div>
+            </div>
+            
             <div class="card">
                 <img src="images/NEET_web_thumbnail.png" alt="ERROR 404">
                 <div class="info">
@@ -98,6 +158,7 @@
                 </div>
             </div>
 
+
         </div>
     </section>
 
@@ -107,8 +168,8 @@
         <h2>Contacts</h2>
         <div class="contact-info">
             <a href="#"><i class='bx bxl-instagram'></i>Instagram</a>
-            <a href="#"><i class='bx bxl-twitter' ></i>Twitter</a>
-            <a href="#"><i class='bx bxl-linkedin-square'></i>Linkdin</a>
+            <a href="https://x.com/thesatire_one" target="_blank"><i class='bx bxl-twitter' ></i>Twitter</a>
+            <a href="https://www.linkedin.com/in/priyanshu-raj-0760b8212/" target="_blank"><i class='bx bxl-linkedin-square'></i>Linkdin</a>
             <a href="#"><i class='bx bxl-whatsapp' ></i>Whatsapp</a>
         </div>
     </section>
